@@ -88,7 +88,7 @@ jobs:
         flag=$(python -c "print('--pre' if '${{matrix.release}}' == 'pre' else '')" 2>&1)
         pip install --requirement requirements.txt --find-links https://download.pytorch.org/whl/cpu/torch_stable.html --upgrade $flag
         # adjust versions according installed Torch version
-        python ./requirements/adjust_versions.py requirements/examples.txt
+        python ./requirements/_adjust_versions.py requirements/examples.txt
         pip install --requirement requirements/examples.txt --find-links https://download.pytorch.org/whl/cpu/torch_stable.html --upgrade
         pip install --requirement requirements/test.txt --upgrade
         pip list
@@ -103,7 +103,7 @@ jobs:
         HOROVOD_WITHOUT_TENSORFLOW: 1
       run: |
         # adjust versions according installed Torch version
-        python ./requirements/adjust_versions.py requirements/extra.txt
+        python ./requirements/_adjust_versions.py requirements/extra.txt
         pip install --requirement ./requirements/extra.txt --find-links https://download.pytorch.org/whl/cpu/torch_stable.html --upgrade
         pip list
       shell: bash

@@ -95,7 +95,7 @@ ENV \
 COPY ./requirements/extra.txt requirements-extra.txt
 COPY ./requirements/examples.txt requirements-examples.txt
 COPY ./requirements/test.txt requirements-test.txt
-COPY ./requirements/adjust_versions.py requirements_adjust_versions.py
+COPY ./requirements/_adjust_versions.py requirements_adjust_versions.py
 
 RUN \
     pip list | grep torch && \
