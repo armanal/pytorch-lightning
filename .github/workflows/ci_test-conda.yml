@@ -36,6 +36,7 @@ jobs:
         # adjust versions according installed Torch version
         python ./requirements/_adjust_versions.py requirements/extra.txt
         python ./requirements/_adjust_versions.py requirements/examples.txt
+        python .github/prune-packages.py requirements/extra.txt "horovod"
         pip install --requirement requirements/devel.txt --find-links https://download.pytorch.org/whl/nightly/torch_nightly.html
         # set a per-test timeout of 2.5 minutes to fail sooner. this aids with hanging tests
         pip install pytest-timeout
